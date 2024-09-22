@@ -4,7 +4,8 @@
   "description": "Run a maximum number of promises in parallel",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "lint": "eslint",
     "prepare": "husky"
   },
   "keywords": [
@@ -17,10 +18,15 @@
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
     "@eslint/js": "9.11.0",
+    "@swc/core": "1.7.26",
+    "@swc/jest": "0.2.36",
     "@types/eslint__js": "8.42.3",
+    "@types/jest": "29.5.13",
     "eslint": "9.11.0",
     "globals": "15.9.0",
     "husky": "9.1.6",
+    "jest": "29.7.0",
+    "jest-environment-jsdom": "29.7.0",
     "lint-staged": "15.2.10",
     "prettier": "3.3.3",
     "typescript": "5.6.2",
