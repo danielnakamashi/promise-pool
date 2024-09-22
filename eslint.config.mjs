@@ -8,6 +8,13 @@ export default tseslint.config(
   { files: ['**/*.{js,mjs,cjs,ts}'] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
+  {
+    files: ['commitlint.config.js'],
+    languageOptions: {
+      globals: globals.node,
+    },
+    ...pluginJs.configs.recommended,
+  },
   ...tseslint.configs.strictTypeChecked.map((config) => ({
     ...config,
     files: typescriptFiles,
