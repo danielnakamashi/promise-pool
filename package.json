@@ -2,10 +2,27 @@
   "name": "@dnakamashi/promise-pool",
   "version": "0.0.0",
   "description": "Run a maximum number of promises in parallel",
-  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/danielnakamashi/promise-pool"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
   "scripts": {
     "test": "jest",
     "lint": "eslint",
+    "compile": "npm run build:clean && tsc -b ./configs/tsconfig.cjs.json ./configs/tsconfig.esm.json ./configs/tsconfig.types.json",
+    "build:clean": "rimraf ./dist",
+    "build": "npm-run-all build:clean compile && node ./scripts/prepare-package-json",
+    "prepack": "npm run build",
     "prepare": "husky"
   },
   "keywords": [
@@ -14,6 +31,9 @@
   ],
   "author": "Daniel Nakamashi <dnakamashi@gmail.com>",
   "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ],
   "devDependencies": {
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
@@ -28,9 +48,15 @@
     "jest": "29.5.0",
     "jest-environment-jsdom": "29.7.0",
     "lint-staged": "15.2.10",
+    "npm-run-all": "^4.1.5",
     "prettier": "3.3.3",
+    "rimraf": "^6.0.1",
     "typescript": "5.6.2",
     "typescript-eslint": "8.6.0"
   },
-  "packageManager": "pnpm@9.10.0"
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9"
+  },
+  "packageManager": "pnpm@9.11.0"
 }
