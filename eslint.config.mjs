@@ -3,11 +3,13 @@ import pluginJs from '@eslint/js'
 import tseslint from 'typescript-eslint'
 
 const typescriptFiles = ['**/*.ts']
+const scriptFiles = ['scripts/*.js']
 
 export default tseslint.config(
   { files: ['**/*.{js,mjs,cjs,ts}'] },
   { ignores: ['coverage/'] },
   { languageOptions: { globals: globals.browser } },
+  { files: scriptFiles, languageOptions: { globals: globals.node } },
   pluginJs.configs.recommended,
   {
     files: ['commitlint.config.js', 'jest.config.js'],
