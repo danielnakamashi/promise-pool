@@ -1,6 +1,6 @@
 {
   "name": "@dnakamashi/promise-pool",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Run a maximum number of promises in parallel",
   "repository": {
     "url": "https://github.com/danielnakamashi/promise-pool"
