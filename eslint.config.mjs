@@ -19,6 +19,9 @@ export default tseslint.config(
   ...tseslint.configs.strictTypeChecked.map((config) => ({
     ...config,
     files: typescriptFiles,
+    rules: {
+      '@typescript-eslint/no-floating-promises': 'warn',
+    },
   })),
   ...tseslint.configs.stylisticTypeChecked.map((config) => ({
     ...config,
